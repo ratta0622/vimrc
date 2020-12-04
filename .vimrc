@@ -68,7 +68,9 @@ if dein#load_state('$HOME/.vim/dein')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('tpope/vim-surround')
+  call dein#add('tpope/vim-repeat')
   call dein#add('tpope/vim-commentary')
+  call dein#add('airblade/vim-gitgutter')
 
   " Colorscheme
   call dein#add('raphamorim/lucario')
@@ -152,3 +154,10 @@ let g:airline_theme = 'lucius'
 "gc4: comment out 4 lines under current line
 "gc(in visual mode): comment out designated line
 "-----------------------------------------------------------------------
+
+"-----------------------vim-gitgutter-----------------------------------
+" change color of gutter
+let g:gitgutter_override_sign_column_highlight = 0
+highlight clear SignColumn
+"-----------------------------------------------------------------------
+
