@@ -68,6 +68,7 @@ if dein#load_state('$HOME/.vim/dein')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('tpope/vim-surround')
+  call dein#add('tpope/vim-commentary')
 
   " Colorscheme
   call dein#add('raphamorim/lucario')
@@ -144,4 +145,10 @@ let g:airline_theme = 'lucius'
 "e.g)
 " di( -> delete characters in ()
 " cs'( -> change '' to ()
+"-----------------------------------------------------------------------
+
+"--------------------------vim-commentary-------------------------------
+"gcc: comment out current line
+"gc4: comment out 4 lines under current line
+"gc(in visual mode): comment out designated line
 "-----------------------------------------------------------------------
