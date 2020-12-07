@@ -32,6 +32,7 @@ set shiftwidth=2
 " 改行時に自動でインデント
 set autoindent
 
+
 " 検索文字列が小文字の場合は大文字小文字を区別なく検索する
 set ignorecase
 " 検索文字列に大文字が含まれている場合は区別して検索する
@@ -44,6 +45,10 @@ set wrapscan
 set hlsearch
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
+
+
+" 補完時のpreview windowの表示を無くしてポップアップメニュー
+set completeopt=menu
 
 "---------------------------------Dein.vim----------------------------------
 if &compatible
@@ -71,6 +76,27 @@ if dein#load_state('$HOME/.vim/dein')
   call dein#add('tpope/vim-repeat')
   call dein#add('tpope/vim-commentary')
   call dein#add('airblade/vim-gitgutter')
+
+  "^^^^^^^^^^^^^^^^^^^^deoplete.nvim^^^^^^^^^^^^^^^^^^^^^^^
+  " Install written in git
+  call dein#add('Shougo/deoplete.nvim')
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
+  
+  call dein#add('Shougo/neco-vim') "complement for vim-script
+
+  " add plugin for Language Server Protocol
+  " in script file, run :LspInstallServer to use complement
+  call dein#add('prabirshrestha/vim-lsp') "vim-lsp
+  call dein#add('mattn/vim-lsp-settings') "easy to use vim-lsp
+  call dein#add('lighttiger2505/deoplete-vim-lsp') "vim-lsp-settings for deoplete <https://note.com/2357note/n/nfbd76e2c394e#on9lw>
+  "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  " to uninstall plugins
+  " reboot and run :call dein#recache_runtimepath()
+  "call map(dein#check_clean(), "delete(v:val, 'rf')")
 
   " Colorscheme
   call dein#add('raphamorim/lucario')
@@ -160,4 +186,14 @@ let g:airline_theme = 'lucius'
 let g:gitgutter_override_sign_column_highlight = 0
 highlight clear SignColumn
 "-----------------------------------------------------------------------
+
+"-----------------------deoplete.vim------------------------------------
+" version of vim is 8.2
+" python3 has been installed
+" $ pip3 install --user --upgrade pynvim
+" <https://github.com/Shougo/deoplete.nvim>
+" <https://teratail.com/questions/279373> 
+let g:deoplete#enable_at_startup = 1
+"-----------------------------------------------------------------------
+
 
