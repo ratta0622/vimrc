@@ -122,8 +122,13 @@ endif
 "---------------------------------------------------------------------------
 
 
-colorscheme lucario
+colorscheme molokai
 
+
+
+
+
+" key mapping
 
 "-----------bracket----------------------------------------------------- 
 inoremap [ []<LEFT>
@@ -147,11 +152,32 @@ function! IndentBraces()
 endfunction
 " use Enter key as IndentBraces defined above
 inoremap <silent> <expr> <CR> IndentBraces()
+
+"(;) -> (); for C++
+function! SemicolonRoundBrackets()
+    let nowletter = getline(".")[col(".")-1]    " a character on cursol
+    let beforeletter = getline(".")[col(".")-2] " a character before cursol
+
+    " when {<cursol>}
+    if nowletter == ")" && beforeletter == "("
+        return "\<RIGHT>;"
+    else
+        return ";"
+    endif
+endfunction
+" use Enter key as IndentBraces defined above
+inoremap <silent> <expr> ; SemicolonRoundBrackets()
+
 "----------------------------------------------------------------------- 
 
 " set ; as <LEADER>
 let mapleader = ";"
 
+
+
+
+
+" setting of Plugins
 
 "--------NERDTree-------------------------------------------------------
 " start NERDTree by Ctrl+e
