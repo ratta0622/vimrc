@@ -100,6 +100,11 @@ if dein#load_state('$HOME/.vim/dein')
   " Colorscheme
   call dein#add('raphamorim/lucario')
   call dein#add('tomasr/molokai')
+  call dein#add('nanotech/jellybeans.vim')
+  call dein#add('w0ng/vim-hybrid')
+  call dein#add('vim-scripts/Wombat')
+  call dein#add('vim-scripts/twilight')
+  call dein#add('sjl/badwolf')
 
   " Required:
   call dein#end()
@@ -126,19 +131,21 @@ inoremap ( ()<LEFT>
 inoremap ' ''<LEFT>
 inoremap " ""<LEFT>
 inoremap { {}<LEFT>
-"{}
-function! IndentBraces()
-    let nowletter = getline(".")[col(".")-1]    " 今いるカーソルの文字
-    let beforeletter = getline(".")[col(".")-2] " 1つ前の文字
 
-    " カーソルの位置の括弧が隣接している場合
+"{}
+"<https://qiita.com/karunru/items/58eccc565ba9ffee823f>
+function! IndentBraces()
+    let nowletter = getline(".")[col(".")-1]    " a character on cursol
+    let beforeletter = getline(".")[col(".")-2] " a character before cursol
+
+    " when {<cursol>}
     if nowletter == "}" && beforeletter == "{"
         return "\n\t\n\<UP>\<RIGHT>\<RIGHT>"
     else
         return "\n"
     endif
 endfunction
-" Enterに割り当て
+" use Enter key as IndentBraces defined above
 inoremap <silent> <expr> <CR> IndentBraces()
 "----------------------------------------------------------------------- 
 
