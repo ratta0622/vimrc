@@ -1,7 +1,6 @@
 "文字コードをUTF-8に設定
 set fenc=utf-8
 
-
 " 行番号を表示
 set number
 " 現在の行を強調表示
@@ -121,13 +120,27 @@ endif
 colorscheme lucario
 
 
-" bracket 
-inoremap { {}<LEFT>
+"-----------bracket----------------------------------------------------- 
 inoremap [ []<LEFT>
 inoremap ( ()<LEFT>
 inoremap ' ''<LEFT>
 inoremap " ""<LEFT>
+inoremap { {}<LEFT>
+"{}
+function! IndentBraces()
+    let nowletter = getline(".")[col(".")-1]    " 今いるカーソルの文字
+    let beforeletter = getline(".")[col(".")-2] " 1つ前の文字
 
+    " カーソルの位置の括弧が隣接している場合
+    if nowletter == "}" && beforeletter == "{"
+        return "\n\t\n\<UP>\<RIGHT>\<RIGHT>"
+    else
+        return "\n"
+    endif
+endfunction
+" Enterに割り当て
+inoremap <silent> <expr> <CR> IndentBraces()
+"----------------------------------------------------------------------- 
 
 " set ; as <LEADER>
 let mapleader = ";"
@@ -195,5 +208,3 @@ highlight clear SignColumn
 " <https://teratail.com/questions/279373> 
 let g:deoplete#enable_at_startup = 1
 "-----------------------------------------------------------------------
-
-
