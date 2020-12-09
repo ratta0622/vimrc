@@ -173,6 +173,11 @@ inoremap <silent> <expr> ; SemicolonRoundBrackets()
 " set ; as <LEADER>
 let mapleader = ";"
 
+" move in insert mode by hjkl keys
+inoremap <C-h> <LEFT>
+inoremap <C-j> <DOWN>
+inoremap <C-k> <UP>
+inoremap <C-l> <RIGHT>
 
 
 
