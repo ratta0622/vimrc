@@ -74,6 +74,7 @@ if dein#load_state('$HOME/.vim/dein')
   call dein#add('tpope/vim-surround')
   call dein#add('tpope/vim-repeat')
   call dein#add('tpope/vim-commentary')
+  call dein#add('tpope/vim-fugitive')
   call dein#add('airblade/vim-gitgutter')
 
   "^^^^^^^^^^^^^^^^^^^^deoplete.nvim^^^^^^^^^^^^^^^^^^^^^^^
