@@ -106,6 +106,7 @@ if dein#load_state('$HOME/.vim/dein')
   call dein#add('vim-scripts/Wombat')
   call dein#add('vim-scripts/twilight')
   call dein#add('sjl/badwolf')
+  call dein#add('beikome/cosme.vim')
 
   " Required:
   call dein#end()
@@ -123,8 +124,7 @@ endif
 "---------------------------------------------------------------------------
 
 
-colorscheme molokai
-
+colorscheme cosme
 
 
 
